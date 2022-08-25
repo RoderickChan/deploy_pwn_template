@@ -1,0 +1,10 @@
+# docker-compose.yaml for pwn
+version: "3"
+services:
+  pwn:
+    build: .
+    restart: unless-stopped
+    environment: # unset FLAG if u don't want to generate flag from env
+      FLAG: flag{this_is_a_real_flag}
+    ports:
+      - "10001:1337"
