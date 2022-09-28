@@ -2,7 +2,7 @@
 set -e
 
 # build image
-docker-compose up -d
+docker-compose up -d || docker compose up -d
 
 # wait for starting container
 sleep 5

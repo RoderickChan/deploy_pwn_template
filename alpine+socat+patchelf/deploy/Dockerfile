@@ -1,5 +1,5 @@
 # dockerfile for pwn
-FROM ubuntu:18.04 as compiler
+FROM ubuntu:20.04 as compiler
 
 WORKDIR /root
 
@@ -43,8 +43,7 @@ COPY ./run_pwn.sh /
 
 RUN chmod 644 ./flag  && \
 	chmod 711 /run_pwn.sh && \
-    chown -R root:root /home/ctf
-
+    chown -R root:root .
 
 EXPOSE 1337
 

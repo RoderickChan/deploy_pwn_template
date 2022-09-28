@@ -27,7 +27,7 @@ COPY ./run_pwn.sh /
 
 RUN chmod 644 ./flag && \
 	chmod 711 /run_pwn.sh && \
-	chown -R root:root /home/ctf
+	chown -R root:root .
 
 
 EXPOSE 1337

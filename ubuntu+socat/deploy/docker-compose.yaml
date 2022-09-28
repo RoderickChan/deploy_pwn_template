@@ -6,5 +6,6 @@ services:
     restart: unless-stopped
     environment: # unset FLAG if u don't want to generate flag from env
       FLAG: flag{this_is_a_real_flag}
+      ENABLE_POW: 0 # set ENABLE_POW 1 if u want to use proof-of-pow, unset it to not
     ports:
       - "10001:1337"
