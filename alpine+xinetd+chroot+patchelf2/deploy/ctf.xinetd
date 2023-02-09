@@ -1,0 +1,26 @@
+service ctf
+{
+    disable     = no
+    socket_type = stream
+    instances   = 500
+    protocol    = tcp
+    wait        = no
+    user        = root
+    type        = UNLISTED
+    port        = 1337
+    bind        = 0.0.0.0
+    server      = /bin/bash
+
+    # replace pwn to your program
+    server_args = /run_pwn.sh
+
+    log_type    = FILE /var/log/ctf.xinetd.log
+    log_on_success = DURATION HOST
+    log_on_failure = HOST
+
+    # safety options
+    per_source	= 10 # the maximum instances of this service per source IP address
+    rlimit_cpu	= 20 # the maximum number of CPU seconds that the service may use
+    rlimit_as  = 4096M # the Address Space resource limit for the service
+    # access_times = 2:00-9:00 12:00-24:00
+}
