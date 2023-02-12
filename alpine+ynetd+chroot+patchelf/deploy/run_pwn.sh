@@ -46,4 +46,4 @@ unset FLAG
 cd /home/ctf
 
 # run pwn challenge
-exec timeout 300 $(which chroot) --userspec=1000:1000 /home/ctf ./pwn
+exec timeout 300 chroot --userspec=1000:1000 /home/ctf ./pwn

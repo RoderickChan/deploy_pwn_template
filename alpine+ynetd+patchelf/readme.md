@@ -1,0 +1,18 @@
+# 说明
+
+使用`alpine + ynetd + patchelf` 部署`pwn`题
+
+- 参照模板，将二进制文件放置在`./bin`目录下
+- 参照模板，将运行所需的`glibc`文件放置在`./glibc`目录下
+- 运行`./build_image.sh`可以生成镜像以及提供给选手的`attachment`文件夹
+- 在`./deploy/docker-compose.yaml`文件中修改映射的宿主机端口、`flag`的内容
+- 其他需求可自行根据模板文件定制
+
+# Introduction
+
+use `alpine + ynetd + patchelf` to deploy pwn challenge
+
+- put binary file in `./bin`
+- put glibc runtime file in `./glibc`
+- execute `./build_image.sh` to generate image and then run a container. Also, you can decide to get attachment file, which is offered to player 
+- change the port mapping in host and the content of flag in `./deploy/docker-compose.yaml`

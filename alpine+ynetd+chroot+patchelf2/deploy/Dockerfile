@@ -15,7 +15,7 @@ FROM alpine:latest as runner
 USER root
 
 RUN apk update && \
-    apk add --no-cache bash coreutils && \
+    apk add --no-cache bash && \
     ln -sf `which bash` /bin/sh && \
 	adduser ctf -u 1000 -s /bin/sh -D
 
@@ -26,13 +26,12 @@ COPY --from=patchelf /root/ctf/pwn .
 COPY ./glibc ./glibc
 COPY ./flag ./
 COPY ./run_pwn.sh /
-COPY ./ctf.xinetd /etc/ctf.xinetd
 COPY ./bin/ls ./bin/ls
 COPY ./bin/cat ./bin/cat
-COPY ./bin/xinetd /bin/xinetd
+COPY ./bin/ynetd /bin/ynetd
 
 RUN chmod +x ./bin/* && \
-    chmod +x /bin/xinetd && \
+    chmod +x /bin/ynetd && \
     cp /bin/bash ./bin/sh
 
 RUN mkdir ./dev && \
@@ -52,6 +51,6 @@ RUN chmod 644 ./flag  && \
 
 EXPOSE 1337
 
-CMD xinetd -f /etc/ctf.xinetd -pidfile /run/xinetd.pid -limit 1000 -reuse;sleep infinity;
+CMD ynetd -p 1337 -lp 500 -se y "/run_pwn.sh"
 
 
