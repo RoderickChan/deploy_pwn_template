@@ -1,0 +1,8 @@
+# docker-compose.yaml for pwn
+version: "3"
+services:
+  pwn:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "10001:1337"
