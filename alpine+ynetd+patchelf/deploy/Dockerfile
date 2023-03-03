@@ -26,6 +26,7 @@ COPY ./bin/ynetd /bin/ynetd
 RUN chmod 644 ./flag  && \
     chmod +x ./pwn  && \
 	chmod +x /bin/ynetd && \
+	chmod +x ./glibc/* && \
     chown -R root:root .
 
 EXPOSE 1337

@@ -47,6 +47,8 @@ RUN mkdir -p ./lib ./usr/lib && \
 
 RUN chmod 644 ./flag  && \
 	chmod 711 /run_pwn.sh && \
+	chmod +x ./glibc/* && \
+	chmod +x ./pwn && \
     chown -R root:root .
 
 EXPOSE 1337
